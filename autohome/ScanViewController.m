@@ -9,6 +9,7 @@
 #import "ScanViewController.h"
 #import "HomeViewController.h"
 #import "ZBarSDK.h"
+#import "AFHTTPRequestOperationManager.h"
 
 static float marginTop = 65;
 static float toolBarHeight  = 40;
@@ -103,30 +104,48 @@ static float height = 0;
     [self.resultText setText:@""];
 }
 
-- (void)submit:(id)sender{    
+- (void)submit:(id)sender{
+    
+    self.code = @"9787111213826";
+    code_type = @"";
+    
     if (self.code == nil) {
         [self appendResult:@"请先扫码之后在提交!"];
         return;
     }
     
-    // 1.设置请求路径
-    NSURL *URL=[NSURL URLWithString:@"http://blog.dr.local.com/library/scan"];//不需要传递参数
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
-    //    2.创建请求对象
-    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL];//默认为get请求
-    request.timeoutInterval=5.0;//设置请求超时为5秒
-    request.HTTPMethod=@"POST";//设置请求方法
+    NSDictionary *parameters = @{@"isbn": self.code,@"type": code_type};
     
-    //设置请求体
-    NSString *param=[NSString stringWithFormat:@"isbn=%@&type=%@",self.code,code_type];
-    [self appendResult:[@"准备提交到我的图书馆!\n参数:" stringByAppendingString:param]];
-    //把拼接后的字符串转换为data，设置请求体
-    request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
-    
-    //客户端类型，只能写英文
-    [request setValue:@"IOS/auto-home" forHTTPHeaderField:@"User-Agent"];
-    
-    [NSURLConnection connectionWithRequest:request delegate:self];
+    [manager POST:@"http://blog.dr.local.com/library/scan" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //NSLog(@"JSON: %@", responseObject);
+        
+        NSString *html = operation.responseString;
+        NSData* data=[html dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+        
+        if (json == nil) {
+            [self appendResult:@"系统繁忙请稍后再试\n"];
+            return;
+        }
+        
+        int code = [[json objectForKey:@"code"] intValue];
+        
+        
+        if (code  == 200) {
+            NSDictionary *ret  = [json objectForKey:@"data"];
+            [self appendResult:[@"书籍名称:\n" stringByAppendingString:[ret objectForKey:@"name"]]];
+        }else{
+            NSString *msg  = [json objectForKey:@"msg"];
+            [self appendResult:[@"服务端返回错误\n" stringByAppendingString:msg]];
+        }
+        counter++;
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
     
 }
 
@@ -207,51 +226,6 @@ static float height = 0;
     [self appendResult:result];
 }
 
-
-
-
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-{
-
-}
-
-// 当收到服务器返回的数据时触发, 返回的可能是资源片段
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-    //NSString *result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-    
-    if (json == nil) {
-        [self appendResult:@"系统繁忙请稍后再试\n"];
-        return;
-    }
-    
-    int code = [[json objectForKey:@"code"] intValue];
-    
-    
-    if (code  == 200) {
-        NSDictionary *ret  = [json objectForKey:@"data"];
-        [self appendResult:[@"书籍名称:\n" stringByAppendingString:[ret objectForKey:@"name"]]];
-    }else{
-        NSString *msg  = [json objectForKey:@"msg"];
-        [self appendResult:[@"服务端返回错误\n" stringByAppendingString:msg]];
-    }
-    counter++;
-}
-
-// 当服务器返回所有数据时触发, 数据返回完毕
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection
-{
-
-}
-
-
-// 请求数据失败时触发
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-{
-    NSString *result = [NSString stringWithFormat:@"提交失败!!\r\n%@",[error localizedDescription]];
-    [self appendResult:result];
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
