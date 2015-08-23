@@ -25,6 +25,7 @@ static float height = 0;
 @property (strong, nonatomic) UIImageView *resultImage;
 @property (strong,nonatomic) UITextView *resultText;
 @property (strong,nonatomic) NSString *code;
+@property (strong,nonatomic) UIButton *submitButton;
 @end
 
 @implementation ScanViewController
@@ -85,6 +86,7 @@ static float height = 0;
     [buttonSave setTitleColor:[UIColor blackColor]forState:UIControlStateNormal];
     [buttonSave addTarget:self action:@selector(submit:) forControlEvents:UIControlEventTouchUpInside];
     
+    self.submitButton = buttonSave;
     
     UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, height - toolBarHeight, width, toolBarHeight) ];
     
@@ -106,17 +108,29 @@ static float height = 0;
 
 - (void)submit:(id)sender{
     
-    self.code = @"9787111213826";
-    code_type = @"";
     
-    if (self.code == nil) {
+    if (self.code == nil || code_type == nil) {
         [self appendResult:@"请先扫码之后在提交!"];
         return;
     }
     
+    self.submitButton.userInteractionEnabled = NO;
+    
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
-    NSDictionary *parameters = @{@"isbn": self.code,@"type": code_type};
+    [manager.requestSerializer setTimeoutInterval:3];  //Time out after 3 seconds
+    
+    NSString *userAgent = [manager.requestSerializer  valueForHTTPHeaderField:@"User-Agent"];
+    
+    userAgent = [userAgent stringByAppendingPathComponent:@" IOS/auto-home_v1.0"];
+    
+    [manager.requestSerializer setValue:userAgent forHTTPHeaderField:@"User-Agent"];
+    
+    
+    //[manager.requestSerializer setValue:@"auto-home_v1.0" forHTTPHeaderField:@"Version"];
+    
+    NSDictionary *parameters = @{@"isbn":self.code,@"type": code_type};
     
     [manager POST:@"http://blog.dr.local.com/library/scan" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //NSLog(@"JSON: %@", responseObject);
@@ -141,10 +155,12 @@ static float height = 0;
             [self appendResult:[@"服务端返回错误\n" stringByAppendingString:msg]];
         }
         counter++;
-        
+        self.submitButton.userInteractionEnabled = YES;
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
+        
+        self.submitButton.userInteractionEnabled = YES;
+        [self appendResult:[@"错误\n" stringByAppendingString:error.localizedDescription]];
     }];
     
 }

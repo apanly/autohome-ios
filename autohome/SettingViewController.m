@@ -7,6 +7,7 @@
 //
 
 #import "SettingViewController.h"
+#import "APIViewController.h"
 #import "AppGlobal.h"
 
 @interface SettingViewController ()<UITableViewDataSource,UITableViewDelegate>
@@ -44,6 +45,7 @@
     
     [buss addObject:@"搜索"];
     [buss addObject:@"地图"];
+    [buss addObject:@"API设置"];
     
     [about addObject:@"意见反馈"];
     [about addObject:@"联系我"];
@@ -55,12 +57,10 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    NSLog(@"1");
     return self.tableData.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"2");
     NSMutableArray  *tmp = [self.tableData objectAtIndex:section];
     return tmp.count;
 }
@@ -78,11 +78,84 @@
     }
     
     NSMutableArray  *tmp = [self.tableData objectAtIndex:section];
-    
-    NSLog(@"%@",[tmp objectAtIndex:row]);
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.text = [tmp objectAtIndex:row];
     
     return cell;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(10.0, 0.0, 300.0, 44.0)];
+    
+    UILabel * headerLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    headerLabel.backgroundColor = [UIColor clearColor];
+    headerLabel.opaque = NO;
+    headerLabel.textColor = [UIColor lightGrayColor];
+    headerLabel.highlightedTextColor = [UIColor whiteColor];
+    headerLabel.font = [UIFont boldSystemFontOfSize:15];
+    headerLabel.frame = CGRectMake(10.0, 0.0, 300.0, 44.0);
+    
+    if (section == 0) {
+        headerLabel.text =  @"通用";
+    }else if (section == 1){
+        headerLabel.text = @"功能业务";
+    }else if (section == 2){
+        headerLabel.text = @"关于";
+    }
+    
+    [customView addSubview:headerLabel];
+    
+    return customView;
+}
+
+//别忘了设置高度
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 44.0;
+}
+
+
+#pragma mark - UITableView delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    NSDictionary *settingDictionary = self.setting[indexPath.row];
+//    
+//    BaseSettingViewController *baseSettingViewController = [[BaseSettingViewController alloc] init];
+//    baseSettingViewController.settingDictionary = settingDictionary;
+//    baseSettingViewController.title = [settingDictionary valueForKey:XHKControllerTitleKey];
+//    
+//    APIViewController *api
+    //NSLog(@"%ld",indexPath.section);
+    int section = indexPath.section;
+    int row = indexPath.row;
+    UIViewController *targetView = nil;
+    
+    switch (section) {
+        case 1:
+            switch (row) {
+                case 0:
+                    
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    targetView  = [[APIViewController alloc]init];
+                    break;
+                    
+                default:
+                    break;
+            }
+            break;
+            
+        default:
+            break;
+    }
+    if (targetView) {
+        [self.navigationController pushViewController:targetView animated:NO];
+    }else{
+        NSLog(@"%i-%i no action",section,row);
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

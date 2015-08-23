@@ -10,6 +10,7 @@
 #import "ScanViewController.h"
 #import "HomeViewController.h"
 #import "SettingViewController.h"
+#import "CustomScanViewController.h"
 #import "AppGlobal.h"
 
 
@@ -165,7 +166,7 @@ float margin = 10;
 
 - (void)launchScanView {
     AppDelegate *app = [UIApplication sharedApplication].delegate;
-    ScanViewController *mainSide = [[ScanViewController alloc] init];
+    CustomScanViewController *mainSide = [[CustomScanViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController: mainSide];
     app.slideMenu.rootViewController = nav;
 }
