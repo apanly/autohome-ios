@@ -20,13 +20,21 @@
 #import <ImageIO/ImageIO.h>
 #import "XHShockHUD.h"
 
+#import "PostViewController.h"
+#import "RichMediaViewController.h"
+#import "BookViewController.h"
+#import "MyViewController.h"
 
+
+#define EACH_W(A) ([UIScreen mainScreen].bounds.size.width/A)
+#define EACH_H (self.tabBar.bounds.size.height)
+#define BTNTAG 10000
 
 
 @interface WWWViewController (){
     float height;
     float width;
-
+    UIButton *_button;
 }
 
 @property(strong,nonatomic) UIActivityIndicatorView *indicator;
@@ -39,6 +47,8 @@
     [super viewDidLoad];
     [self initConstant];
     [self initUI];
+    [self initControllers];
+    [self creatTabbar:self.viewControllers.count];
     
     // Do any additional setup after loading the view.
 }
@@ -69,22 +79,7 @@
     [_indicator setCenter:CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0)];
     [self.view addSubview:_indicator];
     
-    
-//    CGRect frame = CGRectMake(5, height - 22, width -10, 40);
-//    UIButton *selectMediaButton = [[UIButton alloc] initWithFrame:frame ];
-//    [selectMediaButton setTitle:@"上传富媒体" forState:UIControlStateNormal];//    设置内容字体大小
-//    selectMediaButton.titleLabel.font = [UIFont systemFontOfSize:18];//    设置内容文字的颜色
-//    [selectMediaButton setTitleColor:[UIColor orangeColor]forState:UIControlStateNormal];
-//    selectMediaButton.layer.cornerRadius=8.0f;
-//    selectMediaButton.layer.masksToBounds=YES;
-//    selectMediaButton.layer.borderColor=[[UIColor grayColor] CGColor];
-//    selectMediaButton.layer.borderWidth= 1.0f;
-//    
-//    [selectMediaButton addTarget:self action:@selector(selectMedia:) forControlEvents:UIControlEventTouchUpInside];
-//    
-//    [self.view addSubview:selectMediaButton];
-    
-    //用于开关灯操作的button
+    //用于上传富媒体操作的button
     UIButton *selectMediaButton=[[ UIButton alloc ] initWithFrame : CGRectMake ( 0 , 0 , 50 , 30 )];
     [selectMediaButton setTitle : @"+上传" forState: UIControlStateNormal ];
     [selectMediaButton setTitleColor :[ UIColor blackColor ] forState : UIControlStateNormal ];
@@ -93,13 +88,78 @@
     selectMediaButton.titleLabel . font =[ UIFont systemFontOfSize : 16.0 ];
     [selectMediaButton addTarget : self action : @selector (selectMedia:) forControlEvents : UIControlEventTouchUpInside ];
     
-    
     UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithCustomView:selectMediaButton];
     
     self.navigationItem.rightBarButtonItem = barItem;
-    
-
 }
+
+#pragma mark - 如果想添加控制器到tabbar里面在这里面实例化就行
+- (void)initControllers
+{
+    PostViewController *view1 = [[PostViewController alloc]init];
+    [self addViewControllers:view1 title:@"view1"];
+    
+    RichMediaViewController *view2 = [[RichMediaViewController alloc]init];
+    [self addViewControllers:view2 title:@"view2"];
+    
+    BookViewController *view3 = [[BookViewController alloc]init];
+    [self addViewControllers:view3 title:@"view3"];
+    
+    MyViewController *view4 = [[MyViewController alloc]init];
+    [self addViewControllers:view4 title:@"view4"];
+    
+    //  照着上面添加控制球就行了
+}
+
+#pragma  mark - 添加子控制器
+- (void)addViewControllers:(UIViewController *)childController title:(NSString *)title
+{
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:childController];
+    childController.navigationItem.title = title;
+    //  添加导航栏的背景颜色
+    //[nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"sy2@2x"] forBarMetrics:UIBarMetricsDefault];
+    [self addChildViewController:nav];
+}
+
+
+- (void)creatTabbar:(NSInteger)ControllersNum
+{
+    //  只需要该图片名字就行
+    NSArray * normImage = @[@"post@2x",@"book@2x",@"media@2x",@"my@2x"];
+    //  只需修改选中图片的名字
+    NSArray * selectImage = @[@"post_h@2x",@"book_h@2x",@"media_h@2x",@"my_h@2x"];
+    UIImageView *tabbar = [[UIImageView alloc]initWithFrame:self.tabBar.frame];
+    tabbar.backgroundColor =  [UIColor whiteColor];
+    tabbar.userInteractionEnabled = YES;
+    
+    for(int i = 0;i<self.viewControllers.count;i++)
+    {
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        btn.frame = CGRectMake(EACH_W(self.viewControllers.count)*i, 0, EACH_W(self.viewControllers.count), EACH_H);
+        [btn setImage:[UIImage imageNamed:normImage[i]] forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:selectImage[i]] forState:UIControlStateSelected];
+        btn.tag = BTNTAG+i;
+        [tabbar addSubview:btn];
+        if(btn.tag==BTNTAG)
+        {
+            [self btnSelect:btn];
+        }
+        [btn addTarget:self action:@selector(btnSelect:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    [self.view addSubview:tabbar];
+    
+}
+
+- (void)btnSelect:(UIButton *)sender
+{
+    NSLog(@"被点了");
+    _button.selected =NO ;
+    sender.selected = YES;
+    _button = sender;
+    self.selectedIndex = sender.tag-BTNTAG;
+}
+
 
 - (void)selectMedia:(id)sender {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];

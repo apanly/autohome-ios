@@ -1,23 +1,23 @@
 //
-//  PostViewController.m
+//  BookViewController.m
 //  autohome
 //
 //  Created by vincent on 10/22/15.
 //  Copyright (c) 2015 vincent. All rights reserved.
 //
 
-#import "PostViewController.h"
+#import "BookViewController.h"
 
-@interface PostViewController ()
+@interface BookViewController ()
 
 @end
 
-@implementation PostViewController
+@implementation BookViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor grayColor];
+    self.view.backgroundColor = [UIColor magentaColor];
 }
 
 - (void)didReceiveMemoryWarning {

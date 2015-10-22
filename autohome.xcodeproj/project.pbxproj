@@ -56,15 +56,23 @@
 		BFA16F0C1BC0FECC00677605 /* WWWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA16F0B1BC0FECC00677605 /* WWWViewController.m */; };
 		BFA16F0E1BC113BE00677605 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA16F0D1BC113BE00677605 /* MobileCoreServices.framework */; };
 		BFC8016D1BD9208C00B317E7 /* fx10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFC801641BD9208C00B317E7 /* fx10@2x.png */; };
-		BFC8016E1BD9208C00B317E7 /* fx11@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFC801651BD9208C00B317E7 /* fx11@2x.png */; };
-		BFC8016F1BD9208C00B317E7 /* fx12@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFC801661BD9208C00B317E7 /* fx12@2x.png */; };
 		BFC801701BD9208C00B317E7 /* fx9@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFC801671BD9208C00B317E7 /* fx9@2x.png */; };
 		BFC801711BD9208C00B317E7 /* gd11@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFC801681BD9208C00B317E7 /* gd11@2x.png */; };
-		BFC801721BD9208C00B317E7 /* gd9@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFC801691BD9208C00B317E7 /* gd9@2x.png */; };
 		BFC801731BD9208C00B317E7 /* sy11@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFC8016A1BD9208C00B317E7 /* sy11@2x.png */; };
 		BFC801741BD9208C00B317E7 /* sy2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFC8016B1BD9208C00B317E7 /* sy2@2x.png */; };
 		BFC801751BD9208C00B317E7 /* wd13@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFC8016C1BD9208C00B317E7 /* wd13@2x.png */; };
 		BFC801781BD9210F00B317E7 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC801771BD9210F00B317E7 /* PostViewController.m */; };
+		BFC8017B1BD9232100B317E7 /* RichMediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC8017A1BD9232100B317E7 /* RichMediaViewController.m */; };
+		BFC8017E1BD9259900B317E7 /* BookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC8017D1BD9259900B317E7 /* BookViewController.m */; };
+		BFC801841BD9263D00B317E7 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC801831BD9263D00B317E7 /* MyViewController.m */; };
+		BFC801871BD928D400B317E7 /* my_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFC801851BD928D400B317E7 /* my_h@2x.png */; };
+		BFC801881BD928D400B317E7 /* my@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFC801861BD928D400B317E7 /* my@2x.png */; };
+		BFC8018B1BD92DD800B317E7 /* post_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFC801891BD92DD800B317E7 /* post_h@2x.png */; };
+		BFC8018C1BD92DD800B317E7 /* post@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFC8018A1BD92DD800B317E7 /* post@2x.png */; };
+		BFC8018F1BD9332A00B317E7 /* book_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFC8018D1BD9332A00B317E7 /* book_h@2x.png */; };
+		BFC801901BD9332A00B317E7 /* book@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFC8018E1BD9332A00B317E7 /* book@2x.png */; };
+		BFC801931BD935A500B317E7 /* media_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFC801911BD935A500B317E7 /* media_h@2x.png */; };
+		BFC801941BD935A500B317E7 /* media@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFC801921BD935A500B317E7 /* media@2x.png */; };
 		BFC9CF341B50F9C30084FBC4 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC9CF331B50F9C30084FBC4 /* CustomTableViewCell.m */; };
 		BFC9CF391B50FA500084FBC4 /* bubbleMine.png in Resources */ = {isa = PBXBuildFile; fileRef = BFC9CF351B50FA500084FBC4 /* bubbleMine.png */; };
 		BFC9CF3A1B50FA500084FBC4 /* bubbleMine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFC9CF361B50FA500084FBC4 /* bubbleMine@2x.png */; };
@@ -187,16 +195,27 @@
 		BFA16F0B1BC0FECC00677605 /* WWWViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WWWViewController.m; path = blog/WWWViewController.m; sourceTree = "<group>"; };
 		BFA16F0D1BC113BE00677605 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		BFC801641BD9208C00B317E7 /* fx10@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fx10@2x.png"; sourceTree = "<group>"; };
-		BFC801651BD9208C00B317E7 /* fx11@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fx11@2x.png"; sourceTree = "<group>"; };
-		BFC801661BD9208C00B317E7 /* fx12@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fx12@2x.png"; sourceTree = "<group>"; };
 		BFC801671BD9208C00B317E7 /* fx9@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fx9@2x.png"; sourceTree = "<group>"; };
 		BFC801681BD9208C00B317E7 /* gd11@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gd11@2x.png"; sourceTree = "<group>"; };
-		BFC801691BD9208C00B317E7 /* gd9@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gd9@2x.png"; sourceTree = "<group>"; };
 		BFC8016A1BD9208C00B317E7 /* sy11@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sy11@2x.png"; sourceTree = "<group>"; };
 		BFC8016B1BD9208C00B317E7 /* sy2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sy2@2x.png"; sourceTree = "<group>"; };
 		BFC8016C1BD9208C00B317E7 /* wd13@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wd13@2x.png"; sourceTree = "<group>"; };
 		BFC801761BD9210F00B317E7 /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostViewController.h; path = blog/PostViewController.h; sourceTree = "<group>"; };
 		BFC801771BD9210F00B317E7 /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostViewController.m; path = blog/PostViewController.m; sourceTree = "<group>"; };
+		BFC801791BD9232100B317E7 /* RichMediaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RichMediaViewController.h; path = blog/RichMediaViewController.h; sourceTree = "<group>"; };
+		BFC8017A1BD9232100B317E7 /* RichMediaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RichMediaViewController.m; path = blog/RichMediaViewController.m; sourceTree = "<group>"; };
+		BFC8017C1BD9259900B317E7 /* BookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookViewController.h; path = blog/BookViewController.h; sourceTree = "<group>"; };
+		BFC8017D1BD9259900B317E7 /* BookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookViewController.m; path = blog/BookViewController.m; sourceTree = "<group>"; };
+		BFC801821BD9263D00B317E7 /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyViewController.h; path = blog/MyViewController.h; sourceTree = "<group>"; };
+		BFC801831BD9263D00B317E7 /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyViewController.m; path = blog/MyViewController.m; sourceTree = "<group>"; };
+		BFC801851BD928D400B317E7 /* my_h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "my_h@2x.png"; sourceTree = "<group>"; };
+		BFC801861BD928D400B317E7 /* my@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "my@2x.png"; sourceTree = "<group>"; };
+		BFC801891BD92DD800B317E7 /* post_h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "post_h@2x.png"; sourceTree = "<group>"; };
+		BFC8018A1BD92DD800B317E7 /* post@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "post@2x.png"; sourceTree = "<group>"; };
+		BFC8018D1BD9332A00B317E7 /* book_h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "book_h@2x.png"; sourceTree = "<group>"; };
+		BFC8018E1BD9332A00B317E7 /* book@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "book@2x.png"; sourceTree = "<group>"; };
+		BFC801911BD935A500B317E7 /* media_h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "media_h@2x.png"; sourceTree = "<group>"; };
+		BFC801921BD935A500B317E7 /* media@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "media@2x.png"; sourceTree = "<group>"; };
 		BFC9CF321B50F9C30084FBC4 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
 		BFC9CF331B50F9C30084FBC4 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		BFC9CF351B50FA500084FBC4 /* bubbleMine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubbleMine.png; sourceTree = "<group>"; };
@@ -515,6 +534,12 @@
 				BFA16F0B1BC0FECC00677605 /* WWWViewController.m */,
 				BFC801761BD9210F00B317E7 /* PostViewController.h */,
 				BFC801771BD9210F00B317E7 /* PostViewController.m */,
+				BFC801791BD9232100B317E7 /* RichMediaViewController.h */,
+				BFC8017A1BD9232100B317E7 /* RichMediaViewController.m */,
+				BFC8017C1BD9259900B317E7 /* BookViewController.h */,
+				BFC8017D1BD9259900B317E7 /* BookViewController.m */,
+				BFC801821BD9263D00B317E7 /* MyViewController.h */,
+				BFC801831BD9263D00B317E7 /* MyViewController.m */,
 			);
 			name = blog;
 			sourceTree = "<group>";
@@ -530,12 +555,17 @@
 		BFC801631BD9208C00B317E7 /* blog */ = {
 			isa = PBXGroup;
 			children = (
+				BFC801911BD935A500B317E7 /* media_h@2x.png */,
+				BFC801921BD935A500B317E7 /* media@2x.png */,
+				BFC8018D1BD9332A00B317E7 /* book_h@2x.png */,
+				BFC8018E1BD9332A00B317E7 /* book@2x.png */,
+				BFC801891BD92DD800B317E7 /* post_h@2x.png */,
+				BFC8018A1BD92DD800B317E7 /* post@2x.png */,
+				BFC801851BD928D400B317E7 /* my_h@2x.png */,
+				BFC801861BD928D400B317E7 /* my@2x.png */,
 				BFC801641BD9208C00B317E7 /* fx10@2x.png */,
-				BFC801651BD9208C00B317E7 /* fx11@2x.png */,
-				BFC801661BD9208C00B317E7 /* fx12@2x.png */,
 				BFC801671BD9208C00B317E7 /* fx9@2x.png */,
 				BFC801681BD9208C00B317E7 /* gd11@2x.png */,
-				BFC801691BD9208C00B317E7 /* gd9@2x.png */,
 				BFC8016A1BD9208C00B317E7 /* sy11@2x.png */,
 				BFC8016B1BD9208C00B317E7 /* sy2@2x.png */,
 				BFC8016C1BD9208C00B317E7 /* wd13@2x.png */,
@@ -735,30 +765,35 @@
 				BF2D7A981B4EAA0F00BBF24F /* LaunchScreen.xib in Resources */,
 				BFC9CF3C1B50FA500084FBC4 /* bubbleSomeone@2x.png in Resources */,
 				BFC801741BD9208C00B317E7 /* sy2@2x.png in Resources */,
+				BFC8018C1BD92DD800B317E7 /* post@2x.png in Resources */,
 				BFD47B3D1B803D64004D9789 /* zbar-help.html in Resources */,
 				BF2D7ACD1B4EC77500BBF24F /* icon-setting.png in Resources */,
+				BFC801881BD928D400B317E7 /* my@2x.png in Resources */,
 				BF2D7AC31B4EB33000BBF24F /* icon-menu@2x.png in Resources */,
-				BFC8016F1BD9208C00B317E7 /* fx12@2x.png in Resources */,
 				BF0A6B8F1B4FAA67007E7C55 /* icon-micphone.png in Resources */,
 				BF7E35FB1B8971FA00F19646 /* lanch.jpeg in Resources */,
 				BFD47B3E1B803D64004D9789 /* zbar-helpicons.png in Resources */,
 				BF2D7AC91B4EB77700BBF24F /* avatar.png in Resources */,
 				BFD47B3C1B803D64004D9789 /* zbar-back.png in Resources */,
 				BFC801711BD9208C00B317E7 /* gd11@2x.png in Resources */,
+				BFC801941BD935A500B317E7 /* media@2x.png in Resources */,
 				BF2D7AC11B4EAFD500BBF24F /* bg.png in Resources */,
 				BF0A6B8D1B4F86D5007E7C55 /* icon-comment.png in Resources */,
 				BFC9CF3A1B50FA500084FBC4 /* bubbleMine@2x.png in Resources */,
 				BF2D7A951B4EAA0E00BBF24F /* Images.xcassets in Resources */,
 				BFC801701BD9208C00B317E7 /* fx9@2x.png in Resources */,
 				BFC8016D1BD9208C00B317E7 /* fx10@2x.png in Resources */,
-				BFC8016E1BD9208C00B317E7 /* fx11@2x.png in Resources */,
 				BFC9CF391B50FA500084FBC4 /* bubbleMine.png in Resources */,
+				BFC801901BD9332A00B317E7 /* book@2x.png in Resources */,
+				BFC8018F1BD9332A00B317E7 /* book_h@2x.png in Resources */,
 				BF69E5561B89BB5A00FE0967 /* XHShockHUD.bundle in Resources */,
 				BFD47B3F1B803D64004D9789 /* zbar-samples.png in Resources */,
 				BFC9CF3B1B50FA500084FBC4 /* bubbleSomeone.png in Resources */,
 				BFC801751BD9208C00B317E7 /* wd13@2x.png in Resources */,
 				BF6D1CF51B80A66300C04D66 /* icon-scan.png in Resources */,
-				BFC801721BD9208C00B317E7 /* gd9@2x.png in Resources */,
+				BFC801871BD928D400B317E7 /* my_h@2x.png in Resources */,
+				BFC801931BD935A500B317E7 /* media_h@2x.png in Resources */,
+				BFC8018B1BD92DD800B317E7 /* post_h@2x.png in Resources */,
 				BFC801731BD9208C00B317E7 /* sy11@2x.png in Resources */,
 				BF2D7AB21B4EAAD500BBF24F /* icon@2x.png in Resources */,
 				BF2D7ACB1B4EC5BB00BBF24F /* icon-home.png in Resources */,
@@ -788,6 +823,7 @@
 				BFC9CF3F1B510A9F0084FBC4 /* Message.m in Sources */,
 				BF9E2ABB1B9871E9007E41C9 /* TableStyleViewController.m in Sources */,
 				BFD4B6AC1B83839B0062B14A /* AFURLConnectionOperation.m in Sources */,
+				BFC8017E1BD9259900B317E7 /* BookViewController.m in Sources */,
 				BFC9CF341B50F9C30084FBC4 /* CustomTableViewCell.m in Sources */,
 				BF671E011B989B1F00516B12 /* MultipleTableCell.m in Sources */,
 				BFD4B6AD1B83839B0062B14A /* AFURLRequestSerialization.m in Sources */,
@@ -807,10 +843,12 @@
 				BF69E5551B89BB5A00FE0967 /* UIView+XHShockHUD.m in Sources */,
 				BF2D7A8A1B4EAA0E00BBF24F /* main.m in Sources */,
 				BFD4B6AA1B83839B0062B14A /* AFNetworkReachabilityManager.m in Sources */,
+				BFC801841BD9263D00B317E7 /* MyViewController.m in Sources */,
 				BF9E2AB81B984B06007E41C9 /* PopupView.m in Sources */,
 				BFD4B6AF1B83839B0062B14A /* AFURLSessionManager.m in Sources */,
 				BF2D7AB51B4EAC6B00BBF24F /* HomeViewController.m in Sources */,
 				BF2D7AB81B4EACAB00BBF24F /* SlideMenuView.m in Sources */,
+				BFC8017B1BD9232100B317E7 /* RichMediaViewController.m in Sources */,
 				BF9E2A941B981948007E41C9 /* XunFeiViewController.m in Sources */,
 				BF43A37F1B5504D6003EBA6E /* AppGlobal.m in Sources */,
 				BFFEB4F41B87640500079A81 /* CustomScanViewController.m in Sources */,

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WWWViewController : UIViewController<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+@interface WWWViewController : UITabBarController<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 @end

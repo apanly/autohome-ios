@@ -1,23 +1,23 @@
 //
-//  PostViewController.m
+//  RichMediaViewController.m
 //  autohome
 //
 //  Created by vincent on 10/22/15.
 //  Copyright (c) 2015 vincent. All rights reserved.
 //
 
-#import "PostViewController.h"
+#import "RichMediaViewController.h"
 
-@interface PostViewController ()
+@interface RichMediaViewController ()
 
 @end
 
-@implementation PostViewController
+@implementation RichMediaViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor grayColor];
+    self.view.backgroundColor = [UIColor redColor];
 }
 
 - (void)didReceiveMemoryWarning {

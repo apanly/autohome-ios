@@ -1,23 +1,23 @@
 //
-//  PostViewController.m
+//  MyViewController.m
 //  autohome
 //
 //  Created by vincent on 10/22/15.
 //  Copyright (c) 2015 vincent. All rights reserved.
 //
 
-#import "PostViewController.h"
+#import "MyViewController.h"
 
-@interface PostViewController ()
+@interface MyViewController ()
 
 @end
 
-@implementation PostViewController
+@implementation MyViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor grayColor];
+    self.view.backgroundColor = [UIColor yellowColor];
 }
 
 - (void)didReceiveMemoryWarning {
