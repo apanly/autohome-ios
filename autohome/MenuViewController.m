@@ -7,10 +7,11 @@
 //
 #import "AppDelegate.h"
 #import "MenuViewController.h"
-#import "ScanViewController.h"
 #import "HomeViewController.h"
 #import "SettingViewController.h"
+#import "TestGroupController.h"
 #import "CustomScanViewController.h"
+#import "WWWViewController.h"
 #import "AppGlobal.h"
 
 
@@ -50,7 +51,7 @@ float margin = 10;
     
     [self.view addSubview:self.layer];
     
-    self.titles = @[@"首页",@"扫码", @"设置"];
+    self.titles = @[@"首页",@"扫码",@"博客",@"设置",@"Alpha"];
     self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0,  avatarViewHeight + margin * 2, width - avatarViewWidth, height - avatarViewWidth - margin * 2) style:UITableViewStylePlain];
     self.tableview.delegate = self;
     self.tableview.dataSource= self;
@@ -147,7 +148,13 @@ float margin = 10;
             [self launchScanView];
             break;
         case 2:
+            [self launchBlogView];
+            break;
+        case 3:
             [self launchSettingView];
+            break;
+        case 4:
+            [self launchTestGroup];
             break;
         default:
             break;
@@ -171,9 +178,23 @@ float margin = 10;
     app.slideMenu.rootViewController = nav;
 }
 
+- (void)launchBlogView {
+    AppDelegate *app = [UIApplication sharedApplication].delegate;
+    WWWViewController *mainSide = [[WWWViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController: mainSide];
+    app.slideMenu.rootViewController = nav;
+}
+
 - (void)launchSettingView {
     AppDelegate *app = [UIApplication sharedApplication].delegate;
     SettingViewController *mainSide = [[SettingViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController: mainSide];
+    app.slideMenu.rootViewController = nav;
+}
+
+- (void)launchTestGroup {
+    AppDelegate *app = [UIApplication sharedApplication].delegate;
+    TestGroupController *mainSide = [[TestGroupController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController: mainSide];
     app.slideMenu.rootViewController = nav;
 }

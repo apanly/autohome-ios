@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BF2D7A831B4EAA0E00BBF24F"
-               BuildableName = "&#x5bb6;&#x63a7;.app"
+               BuildableName = "fire.app"
                BlueprintName = "autohome"
                ReferencedContainer = "container:autohome.xcodeproj">
             </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BF2D7A831B4EAA0E00BBF24F"
-            BuildableName = "&#x5bb6;&#x63a7;.app"
+            BuildableName = "fire.app"
             BlueprintName = "autohome"
             ReferencedContainer = "container:autohome.xcodeproj">
          </BuildableReference>
@@ -77,7 +77,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BF2D7A831B4EAA0E00BBF24F"
-            BuildableName = "&#x5bb6;&#x63a7;.app"
+            BuildableName = "fire.app"
             BlueprintName = "autohome"
             ReferencedContainer = "container:autohome.xcodeproj">
          </BuildableReference>
@@ -96,7 +96,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BF2D7A831B4EAA0E00BBF24F"
-            BuildableName = "&#x5bb6;&#x63a7;.app"
+            BuildableName = "fire.app"
             BlueprintName = "autohome"
             ReferencedContainer = "container:autohome.xcodeproj">
          </BuildableReference>

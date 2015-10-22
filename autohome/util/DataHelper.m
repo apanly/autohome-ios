@@ -32,13 +32,35 @@
     return filePath;
 }
 
++ (NSString *) getHealthSite
+{
+    //return @"http://api.dr.local.com/upload/health";
+    NSString *ret = [self getApiSite];
+    if (!ret) {
+        ret = @"http://api.vincentguo.cn";
+    }
+    ret = [ ret stringByAppendingString:@"/upload/health"];
+    return ret;
+}
+
 + (NSString *)getApiLibrarySite
 {
     NSString *ret = [self getApiSite];
     if (!ret) {
-        ret = @"http://blog.dr.local.com/library/scan";
+        ret = @"http://api.vincentguo.cn";
     }
     ret = [ ret stringByAppendingString:@"/library/scan"];
+    return ret;
+}
+
++ (NSString *)getApiUploadMediaUrl
+{
+    //return @"http://api.dr.local.com/upload/media";
+    NSString *ret = [self getApiSite];
+    if (!ret) {
+        ret = @"http://api.vincentguo.cn";
+    }
+    ret = [ ret stringByAppendingString:@"/upload/media"];
     return ret;
 }
 

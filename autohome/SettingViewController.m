@@ -8,6 +8,8 @@
 
 #import "SettingViewController.h"
 #import "APIViewController.h"
+#import "AboutViewController.h"
+#import "HealthViewController.h"
 #import "AppGlobal.h"
 
 @interface SettingViewController ()<UITableViewDataSource,UITableViewDelegate>
@@ -39,6 +41,7 @@
     NSMutableArray *buss = [[NSMutableArray alloc]initWithCapacity:2];
     NSMutableArray *about = [[NSMutableArray alloc]initWithCapacity:2];
     
+    [common addObject:@"健康设置"];
     [common addObject:@"语音播报"];
     [common addObject:@"启动后自动录音"];
     [common addObject:@"分享设置"];
@@ -131,10 +134,18 @@
     UIViewController *targetView = nil;
     
     switch (section) {
+        case 0:
+            switch (row) {
+                case 0:
+                    targetView = [[HealthViewController alloc] init];
+                    break;
+                    
+                default:
+                    break;
+            }
         case 1:
             switch (row) {
                 case 0:
-                    
                     break;
                 case 1:
                     break;
@@ -142,6 +153,18 @@
                     targetView  = [[APIViewController alloc]init];
                     break;
                     
+                default:
+                    break;
+            }
+            break;
+        case 2:
+            switch (row) {
+                case 0:
+                    
+                    break;
+                case 1:
+                    targetView  = [[AboutViewController alloc]init];
+                    break;
                 default:
                     break;
             }

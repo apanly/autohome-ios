@@ -28,9 +28,14 @@
     return rectStatus.size.height;
 }
 
++ (float)getNavigationBarHeight
+{
+    return 44.0;//CGRect rectNav = self.navigationController.navigationBar.frame; 
+}
+
 + (float)getScreenWidth
 {
-    CGRect r = [ UIScreen mainScreen ].applicationFrame;
+    CGRect r = [ UIScreen mainScreen ].applicationFrame;//App尺寸，去掉状态栏
     return r.size.width;
 }
 

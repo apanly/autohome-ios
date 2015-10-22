@@ -116,6 +116,7 @@
 - (NSString *) getValByKey:(NSString *) key{
     NSString *ret = nil;
     NSString *filePath =[ self getSettingPath];
+    
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if( ![fileManager fileExistsAtPath:filePath] ){
         return ret;

@@ -16,6 +16,8 @@
 
 + (float)getStatusBarHeight;
 
++ (float)getNavigationBarHeight;
+
 + (float)getScreenWidth;
 + (float)getScreenHeight;
 

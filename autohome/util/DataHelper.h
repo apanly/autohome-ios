@@ -12,7 +12,11 @@
 
 + (NSString *)getApiSite;
 
++ (NSString *)getHealthSite;
+
 + (NSString *)getApiLibrarySite;
 
 + (NSString *)getSettingPath;
+
++ (NSString *)getApiUploadMediaUrl;
 @end
