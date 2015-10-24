@@ -26,7 +26,6 @@
 		BF2D7AC91B4EB77700BBF24F /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = BF2D7AC81B4EB77700BBF24F /* avatar.png */; };
 		BF2D7ACB1B4EC5BB00BBF24F /* icon-home.png in Resources */ = {isa = PBXBuildFile; fileRef = BF2D7ACA1B4EC5BB00BBF24F /* icon-home.png */; };
 		BF2D7ACD1B4EC77500BBF24F /* icon-setting.png in Resources */ = {isa = PBXBuildFile; fileRef = BF2D7ACC1B4EC77500BBF24F /* icon-setting.png */; };
-		BF415E051BD7CD230025FDD8 /* HealthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF415E041BD7CD230025FDD8 /* HealthViewController.m */; };
 		BF415E071BD7CF6C0025FDD8 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF415E061BD7CF6C0025FDD8 /* HealthKit.framework */; };
 		BF43A37F1B5504D6003EBA6E /* AppGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = BF43A37E1B5504D6003EBA6E /* AppGlobal.m */; };
 		BF671E011B989B1F00516B12 /* MultipleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF671E001B989B1F00516B12 /* MultipleTableCell.m */; };
@@ -141,8 +140,6 @@
 		BF2D7AC81B4EB77700BBF24F /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.png; sourceTree = "<group>"; };
 		BF2D7ACA1B4EC5BB00BBF24F /* icon-home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-home.png"; sourceTree = "<group>"; };
 		BF2D7ACC1B4EC77500BBF24F /* icon-setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-setting.png"; sourceTree = "<group>"; };
-		BF415E031BD7CD230025FDD8 /* HealthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HealthViewController.h; path = setting/HealthViewController.h; sourceTree = "<group>"; };
-		BF415E041BD7CD230025FDD8 /* HealthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HealthViewController.m; path = setting/HealthViewController.m; sourceTree = "<group>"; };
 		BF415E061BD7CF6C0025FDD8 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		BF43A37D1B5504D6003EBA6E /* AppGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppGlobal.h; sourceTree = "<group>"; };
 		BF43A37E1B5504D6003EBA6E /* AppGlobal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppGlobal.m; sourceTree = "<group>"; };
@@ -426,8 +423,6 @@
 				BF69E5361B89832300FE0967 /* APIViewController.m */,
 				BF69E5601B8A02C000FE0967 /* AboutViewController.h */,
 				BF69E5611B8A02C000FE0967 /* AboutViewController.m */,
-				BF415E031BD7CD230025FDD8 /* HealthViewController.h */,
-				BF415E041BD7CD230025FDD8 /* HealthViewController.m */,
 			);
 			name = setting;
 			sourceTree = "<group>";
@@ -855,7 +850,6 @@
 				BF2D7ABD1B4EAE0600BBF24F /* MenuViewController.m in Sources */,
 				BFD4B6AE1B83839B0062B14A /* AFURLResponseSerialization.m in Sources */,
 				BF9E2AB51B984389007E41C9 /* ISRDataHelper.m in Sources */,
-				BF415E051BD7CD230025FDD8 /* HealthViewController.m in Sources */,
 				BF2D7AC71B4EB4CD00BBF24F /* SettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
